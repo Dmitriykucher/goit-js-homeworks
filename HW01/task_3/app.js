@@ -10,6 +10,7 @@ if (intCity === null) {
   switch (intCity.toLowerCase()) {
     case 'китай':
       price = 100;
+      massege = `Доставка в ${intCity.toLowerCase()} будет стоить ${price} кредитов`;
       break;
 
     case 'южная америка':
