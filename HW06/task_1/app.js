@@ -20,12 +20,13 @@ class Notepad {
     }
   }
   saveNote(note) {
-    this.notes.push(note);
+    this._notes = [...this._notes, note];
     return note;
   }
   deleteNote(id) {
     for (let i = 0; i < this.notes.length; i += 1) {
       if (id === this.notes[i].id) {
+        this._notes = [...this._notes];
         this.notes.splice(i, 1);
       }
     }
