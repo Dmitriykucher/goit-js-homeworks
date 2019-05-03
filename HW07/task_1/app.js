@@ -88,94 +88,35 @@ const users = [
 ];
 
 const getAllNames = users => users.map(user => user.name);
-
 console.log('Задание 1', getAllNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
 const getUsersByEyeColor = (users, color) =>
   users.filter(user => user.eyeColor === color);
+console.log('Задание 2: ', getUsersByEyeColor(users, 'blue'));
 
-console.log('Задание 2: ', getUsersByEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
-
-const getUsersByGender = (users, gender) => {
-  return users.reduce((arrName, user) => {
-    if (user.gender === gender) {
-      arrName.push(user.name);
-    }
-    return arrName;
-  }, []);
-};
-
-console.log('Задание 3: ', getUsersByGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+const getUsersByGender = (users, gender) =>
+  users.filter(user => user.gender === gender).map(user => user.name);
+console.log('Задание 3: ', getUsersByGender(users, 'male'));
 
 const getInactiveUsers = users => users.filter(user => !user.isActive);
-
-console.log('Задание 4: ', getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
+console.log('Задание 4: ', getInactiveUsers(users));
 
 const getUserByEmail = (users, email) => {
   return users.find(user => user.email === email);
 };
-
-console.log('Задание 5: ', getUserByEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
-console.log('Задание 5: ', getUserByEmail(users, 'elmahead@omatom.com')); // {объект пользователя Elma Head}
+console.log('Задание 5: ', getUserByEmail(users, 'shereeanthony@kog.com'));
+console.log('Задание 5: ', getUserByEmail(users, 'elmahead@omatom.com'));
 
 const getUsersWithAge = (users, min, max) =>
   users.filter(user => user.age <= max && user.age >= min);
-
-console.log('Задание 6: ', getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
-
+console.log('Задание 6: ', getUsersWithAge(users, 20, 30));
 console.log('Задание 6: ', getUsersWithAge(users, 30, 40));
-// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
 const getTotalBalance = users =>
   users.reduce((accumulator, user) => accumulator + user.balance, 0);
+console.log('Задание 7: ', getTotalBalance(users));
 
-console.log('Задание 7: ', getTotalBalance(users)); // 20916
-
-const getUsersByFriend = (users, name) => {
-  return users.reduce((arrName, user) => {
-    if (user.friends.includes(name)) {
-      arrName.push(user.name);
-    }
-    return arrName;
-  }, []);
-};
-
-console.log('Задание 8: ', getUsersByFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
-console.log('Задание 8: ', getUsersByFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
-
-////////////////////////////////////////////////////////////////////////////////////////////
-// const userss = [
-//   { name: 'Mango', daysActive: 15 },
-//   { name: 'Poly', daysActive: 4 },
-//   { name: 'Ajax', daysActive: 27 },
-//   { name: 'Chelsey', daysActive: 2 },
-// ];
-
-// const sortByActiveDays = (a, b) => a.daysActive - b.daysActive;
-
-// console.log(userss.sort(sortByActiveDays));
-
-// const getNamesSortedByFriendsCount = users => {
-//   const sortByFriends = (a, b) => {
-//     a.friends - b.friends;
-//   };
-//   let arrUserrs = users.map(user => {
-//     return user.friends;
-//   });
-//   console.log(arrUserrs);
-
-//   arrUserrs = arrUserrs.sort(sortByFriends);
-//   console.log(arrUserrs);
-// };
-
-// console.log(getNamesSortedByFriendsCount(users));
-// // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-const getUniqueSkills = users => {
-  // твой код
-};
-
-console.log(getUniqueSkills(users));
-// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+const getUsersByFriend = (users, name) =>
+  users.filter(user => user.friends.includes(name)).map(user => user.name);
+console.log('Задание 8: ', getUsersByFriend(users, 'Briana Decker'));
+console.log('Задание 8: ', getUsersByFriend(users, 'Goldie Gentry'));
