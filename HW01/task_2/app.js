@@ -5,7 +5,7 @@ const pricePerDroid = 3000;
 let howMuchDroid = prompt('Сколько дроидов вы хотите приобрести:');
 const totalPrice = howMuchDroid * pricePerDroid;
 
-if (howMuchDroid * howMuchDroid > 0 && howMuchDroid * howMuchDroid < credits) {
+if (totalPrice > 0 && totalPrice < credits) {
   console.log(
     `Вы купили ${howMuchDroid} дроидов, на счету осталось ${credits -
       totalPrice} кредитов.`,
