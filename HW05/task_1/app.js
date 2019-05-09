@@ -28,22 +28,11 @@ Notepad.prototype.deleteNote = function(id) {
 };
 
 Notepad.prototype.updateNoteContent = function(id, updatedContent) {
-  for (let i = 0; i < this.notes.length; i += 1) {
-    if (id === this.notes[i].id) {
-      this.notes[i] = {
-        ...this.notes[i],
-        ...updatedContent,
-      };
-    }
-  }
+  Object.assign(this.findNoteById(id), updatedContent);
 };
 
 Notepad.prototype.updateNotePriority = function(id, priority) {
-  for (let i = 0; i < this.notes.length; i += 1) {
-    if (id === this.notes[i].id) {
-      this.notes[i].priority = priority;
-    }
-  }
+  this.findNoteById(id).priority = priority;
 };
 
 Notepad.prototype.filterNotesByQuery = function(query) {
