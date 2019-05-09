@@ -9,7 +9,7 @@ const Priority = {
 const notepad = {
   notes: [],
   getNotes() {
-    return notepad.notes;
+    return this.notes;
   },
   findNoteById(id) {
     for (const note of this.notes) {
@@ -30,24 +30,10 @@ const notepad = {
     }
   },
   updateNoteContent(id, updatedContent) {
-    let note = {};
-    for (note of this.notes) {
-      if (id === note.id) {
-      }
-    }
-    const updatedNote = {
-      ...note,
-      ...updatedContent,
-    };
-    return updatedNote;
+    Object.assign(this.findNoteById(id), updatedContent);
   },
   updateNotePriority(id, priority) {
-    for (const note of this.notes) {
-      if (id === note.id) {
-        note['priority'] = priority;
-        return note;
-      }
-    }
+    this.findNoteById(id).priority = priority;
   },
   filterNotesByQuery(query) {
     const sampleQuery = [];
