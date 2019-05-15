@@ -23,18 +23,16 @@ const guests = [
 
 const setGuestState = (guests, period) => {
   return guests.map(item => {
-    if (item.inactiveDays >= period) {
-      item.isActive = true;
-    } else {
-      item.isActive = false;
-    }
+    item.inactiveDays > period
+      ? (item.isActive = false)
+      : (item.isActive = true);
     return item;
   });
 };
 
 // Вызовы функции для проверки
-console.log(setGuestState(guests, 10)); // Объекты Mango, Ajax, Chelsey получат isActive false, а Poly наоборот true
+console.table(setGuestState(guests, 10)); // Объекты Mango, Ajax, Chelsey получат isActive false, а Poly наоборот true
 
-console.log(setGuestState(guests, 20)); // Объекты Ajax, Chelsey получат isActive false, а Mango и Poly наоборот true
+console.table(setGuestState(guests, 20)); // Объекты Ajax, Chelsey получат isActive false, а Mango и Poly наоборот true
 
-console.log(setGuestState(guests, 50)); // Объект Chelsey получит isActive false, а Mango, Poly и Ajax наоборот true
+console.table(setGuestState(guests, 50)); // Объект Chelsey получит isActive false, а Mango, Poly и Ajax наоборот true
