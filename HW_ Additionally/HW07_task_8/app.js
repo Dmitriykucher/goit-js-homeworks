@@ -35,13 +35,11 @@ const orderC = {
   cheese: 2,
 };
 
-const getTotal = (products, order) => {
-  products.reduce((accumulator, item) => {
-    let key;
-    accumulator += item[key] * order[key];
-    console.log(item[key]);
-  });
-};
+const getTotal = (products, order) =>
+  Object.keys(order).reduce(
+    (acc, key) => (acc += products[key] * order[key]),
+    0,
+  );
 
 // Вызовы функции для проверки
 console.log(getTotal(products, orderA)); // 140
